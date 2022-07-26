@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using WebApplication2.Models
+@model List<Employee>
+
+<h3>Employee Controller -- Index Page</h3>
+<hr/>
+<a href="/Employee/Create">Create New</a>
+
+<table border="2" width="600">
+    <tr>
+        <th>Employee No</th>
+        <th>Employee Name</th>
+        <th>Job</th>
+        <th>Salary</th>
+        <th>Department No</th>
+        <th></th>
+    </tr>
+    @foreach(Employee item in Model)
+    {
+         <tr>
+            <td>@item.EmpNo</td>
+            <td>@item.Ename</td>
+            <td>@item.Job</td>
+            <td>@item.Salary</td>     
+            <td>@item.DeptNo</td>     
+            <td>
+                <a href="/Employee/Details/@item.EmpNo">Details</a> |
+                <a href="/Employee/Edit/@item.EmpNo">Edit</a> |
+                <a href="/Employee/Delete/@item.EmpNo">Delete</a>  
+            </td>
+         </tr>
+    }
+    </table>
