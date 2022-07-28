@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<Employee>
+<form asp-action="GetDetailsByJob">
+    <input name="Job"/>
+    <input type="submit" value="Get Details" class="btn btn-primary" />
+</form>
+@{
+    if (ViewBag.RequestType == "POST")
+    {
+        <table class="table">
+    <thead>
+        <tr>
+            <th>
+                Ename
+            </th>
+            <th>
+                Job
+            </th>
+            <th>
+                Salary
+            </th>
+            <th>
+                DeptNo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Ename
+            </td>
+            <td>
+                @item.Job
+            </td>
+            <td>
+               @item.Salary
+            </td>
+            <td>
+                @item.DeptNo
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>
+    }
+}
